@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamLanka.Domain", "DreamLanka.Domain\DreamLanka.Domain.csproj", "{FA336F8C-1654-4B87-96C3-53BDD4FF7525}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamLanka.Application", "DreamLanka.Application\DreamLanka.Application.csproj", "{BF57C6DF-9B8C-41E5-B4AF-990D8535A66D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamLanka.Infrastructure", "DreamLanka.Infrastructure\DreamLanka.Infrastructure.csproj", "{CD1150B9-022E-417A-BE24-94F684BA611A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamLanka.Presentation", "DreamLanka.Presentation\DreamLanka.Presentation.csproj", "{5A2D5F1E-E0A8-47B2-AEA8-D87B34BE08E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA336F8C-1654-4B87-96C3-53BDD4FF7525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA336F8C-1654-4B87-96C3-53BDD4FF7525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA336F8C-1654-4B87-96C3-53BDD4FF7525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA336F8C-1654-4B87-96C3-53BDD4FF7525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF57C6DF-9B8C-41E5-B4AF-990D8535A66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF57C6DF-9B8C-41E5-B4AF-990D8535A66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF57C6DF-9B8C-41E5-B4AF-990D8535A66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF57C6DF-9B8C-41E5-B4AF-990D8535A66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD1150B9-022E-417A-BE24-94F684BA611A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1150B9-022E-417A-BE24-94F684BA611A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1150B9-022E-417A-BE24-94F684BA611A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1150B9-022E-417A-BE24-94F684BA611A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2D5F1E-E0A8-47B2-AEA8-D87B34BE08E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2D5F1E-E0A8-47B2-AEA8-D87B34BE08E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2D5F1E-E0A8-47B2-AEA8-D87B34BE08E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2D5F1E-E0A8-47B2-AEA8-D87B34BE08E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CD5096A-24A6-4E0A-9CE4-A4299F71581C}
+	EndGlobalSection
+EndGlobal

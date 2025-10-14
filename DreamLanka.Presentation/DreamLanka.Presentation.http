@@ -1,0 +1,6 @@
+@DreamLanka.Presentation_HostAddress = http://localhost:5207
+
+GET {{DreamLanka.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
