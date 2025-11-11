@@ -19,7 +19,7 @@ public class ProductRepository : IProductRepository
         return await _context.Products
             .Include(p => p.Vendor)
             .Include(p => p.Reviews)
-            .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
+            .FirstOrDefaultAsync(p => p.Id == id);
     }
 
     public async Task<IEnumerable<Product>> GetByVendorIdAsync(int vendorId)
@@ -27,7 +27,7 @@ public class ProductRepository : IProductRepository
         return await _context.Products
             .Include(p => p.Vendor)
             .Include(p => p.Reviews)
-            .Where(p => p.VendorId == vendorId && !p.IsDeleted && p.IsActive)
+            .Where(p => p.VendorId == vendorId && p.IsActive)
             .ToListAsync();
     }
 
@@ -36,7 +36,7 @@ public class ProductRepository : IProductRepository
         return await _context.Products
             .Include(p => p.Vendor)
             .Include(p => p.Reviews)
-            .Where(p => p.Category == category && !p.IsDeleted && p.IsActive)
+            .Where(p => p.Category == category && p.IsActive)
             .ToListAsync();
     }
 
@@ -46,7 +46,7 @@ public class ProductRepository : IProductRepository
             .Include(p => p.Vendor)
             .Include(p => p.Reviews)
             .Where(p => (p.Name.Contains(searchTerm) || p.Description.Contains(searchTerm))
-                     && !p.IsDeleted && p.IsActive)
+                     && p.IsActive)
             .ToListAsync();
     }
 
@@ -78,6 +78,6 @@ public class ProductRepository : IProductRepository
     public async Task<bool> ExistsAsync(int id)
     {
         return await _context.Products
-            .AnyAsync(p => p.Id == id && !p.IsDeleted);
+            .AnyAsync(p => p.Id == id);
     }
 }

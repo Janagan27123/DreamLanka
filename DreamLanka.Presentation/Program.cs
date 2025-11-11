@@ -3,10 +3,12 @@ using DreamLanka.Domain.Interfaces;
 using DreamLanka.Infrastructure.Data;
 using DreamLanka.Infrastructure.Repositories;
 using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System.Reflection;
+using DreamLanka.Presentation.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +27,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-// MediatR Configuration
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(MappingProfile).Assembly));
+// MediatR Configuration with ValidationBehavior
+builder.Services.AddMediatR(cfg => 
+{
+    cfg.RegisterServicesFromAssembly(typeof(MappingProfile).Assembly);
+    cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+});
 
 // AutoMapper Configuration
 builder.Services.AddAutoMapper(cfg =>
@@ -34,8 +40,8 @@ builder.Services.AddAutoMapper(cfg =>
     cfg.AddProfile<MappingProfile>();
 });
 
-// FluentValidation Configuration
-builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+// FluentValidation Configuration - Fix: Register from Application assembly
+builder.Services.AddValidatorsFromAssembly(typeof(MappingProfile).Assembly);
 
 // CORS Configuration
 builder.Services.AddCors(options =>
@@ -65,6 +71,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Add Global Exception Handler Middleware - Add this BEFORE other middleware
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
 app.UseCors("AllowAll");
 

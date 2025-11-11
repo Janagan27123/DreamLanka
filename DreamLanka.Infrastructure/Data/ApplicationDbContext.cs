@@ -1,4 +1,5 @@
-﻿using DreamLanka.Domain.Entities;
+﻿using DreamLanka.Domain.Common;
+using DreamLanka.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DreamLanka.Infrastructure.Data;
@@ -23,6 +24,17 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        // Global Query Filter for Soft Delete - Add this FIRST
+        modelBuilder.Entity<User>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<Product>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<Order>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<Vendor>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<DeliveryPartner>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<Address>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<OrderItem>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<OrderTracking>().HasQueryFilter(e => !e.IsDeleted);
+        modelBuilder.Entity<ProductReview>().HasQueryFilter(e => !e.IsDeleted);
 
         // User configuration
         modelBuilder.Entity<User>(entity =>

@@ -1,0 +1,12 @@
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\bin\Debug\net9.0\DreamLanka.Domain.deps.json
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\bin\Debug\net9.0\DreamLanka.Domain.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\bin\Debug\net9.0\DreamLanka.Domain.pdb
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.AssemblyInfoInputs.cache
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.AssemblyInfo.cs
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.csproj.CoreCompileInputs.cache
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.sourcelink.json
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\refint\DreamLanka.Domain.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\DreamLanka.Domain.pdb
+D:\DreamLanka\DreamLanka\DreamLanka.Domain\obj\Debug\net9.0\ref\DreamLanka.Domain.dll

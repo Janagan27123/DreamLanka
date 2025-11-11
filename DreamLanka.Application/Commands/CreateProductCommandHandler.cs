@@ -19,20 +19,10 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 
     public async Task<ProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
-        var product = new Product
-        {
-            VendorId = request.VendorId,
-            Name = request.CreateProductDto.Name,
-            Description = request.CreateProductDto.Description,
-            Price = request.CreateProductDto.Price,
-            StockQuantity = request.CreateProductDto.StockQuantity,
-            Unit = request.CreateProductDto.Unit,
-            Category = request.CreateProductDto.Category,
-            ImageUrl = request.CreateProductDto.ImageUrl,
-            DiscountPercentage = request.CreateProductDto.DiscountPercentage,
-            DiscountValidUntil = request.CreateProductDto.DiscountValidUntil,
-            IsActive = true
-        };
+        // Use AutoMapper instead of manual mapping
+        var product = _mapper.Map<Domain.Entities.Product>(request.CreateProductDto);
+        product.VendorId = request.VendorId;
+        product.IsActive = true;
 
         var createdProduct = await _productRepository.AddAsync(product);
         return _mapper.Map<ProductDto>(createdProduct);

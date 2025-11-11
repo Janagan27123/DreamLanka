@@ -20,7 +20,7 @@ public class UserRepository : IUserRepository
             .Include(u => u.Addresses)
             .Include(u => u.Vendor)
             .Include(u => u.DeliveryPartner)
-            .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted);
+            .FirstOrDefaultAsync(u => u.Id == id);
     }
 
     public async Task<User?> GetByEmailAsync(string email)
@@ -29,7 +29,7 @@ public class UserRepository : IUserRepository
             .Include(u => u.Addresses)
             .Include(u => u.Vendor)
             .Include(u => u.DeliveryPartner)
-            .FirstOrDefaultAsync(u => u.Email == email && !u.IsDeleted);
+            .FirstOrDefaultAsync(u => u.Email == email);
     }
 
     public async Task<User?> GetByPhoneAsync(string phoneNumber)
@@ -38,7 +38,7 @@ public class UserRepository : IUserRepository
             .Include(u => u.Addresses)
             .Include(u => u.Vendor)
             .Include(u => u.DeliveryPartner)
-            .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber && !u.IsDeleted);
+            .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber);
     }
 
     public async Task<IEnumerable<User>> GetAllAsync()
@@ -47,7 +47,6 @@ public class UserRepository : IUserRepository
             .Include(u => u.Addresses)
             .Include(u => u.Vendor)
             .Include(u => u.DeliveryPartner)
-            .Where(u => !u.IsDeleted)
             .ToListAsync();
     }
 
@@ -79,6 +78,6 @@ public class UserRepository : IUserRepository
     public async Task<bool> ExistsAsync(int id)
     {
         return await _context.Users
-            .AnyAsync(u => u.Id == id && !u.IsDeleted);
+            .AnyAsync(u => u.Id == id);
     }
 }

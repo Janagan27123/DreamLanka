@@ -26,18 +26,10 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserD
             throw new InvalidOperationException("User with this email already exists");
         }
 
-        // Create new user
-        var user = new User
-        {
-            FirstName = request.CreateUserDto.FirstName,
-            LastName = request.CreateUserDto.LastName,
-            Email = request.CreateUserDto.Email,
-            PhoneNumber = request.CreateUserDto.PhoneNumber,
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.CreateUserDto.Password),
-            UserType = request.CreateUserDto.UserType,
-            PreferredLanguage = request.CreateUserDto.PreferredLanguage,
-            IsVerified = false
-        };
+        // Use AutoMapper instead of manual mapping
+        var user = _mapper.Map<Domain.Entities.User>(request.CreateUserDto);
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.CreateUserDto.Password);
+        user.IsVerified = false;
 
         var createdUser = await _userRepository.AddAsync(user);
         return _mapper.Map<UserDto>(createdUser);

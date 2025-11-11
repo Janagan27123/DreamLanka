@@ -1,4 +1,5 @@
-﻿using DreamLanka.Application.Commands;
+using DreamLanka.Application.Commands;
+using DreamLanka.Application.Common;
 using DreamLanka.Application.DTOs;
 using DreamLanka.Application.Queries;
 using MediatR;
@@ -20,98 +21,58 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<UserDto>> CreateUser([FromBody] CreateUserDto createUserDto)
     {
-        try
-        {
-            var command = new CreateUserCommand { CreateUserDto = createUserDto };
-            var result = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetUserById), new { id = result.Id }, result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        var command = new CreateUserCommand { CreateUserDto = createUserDto };
+        var result = await _mediator.Send(command);
+        return CreatedAtAction(nameof(GetUserById), new { id = result.Id }, result);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<UserDto>> GetUserById(int id)
     {
-        try
-        {
-            var query = new GetUserByIdQuery { Id = id };
-            var result = await _mediator.Send(query);
+        var query = new GetUserByIdQuery { Id = id };
+        var result = await _mediator.Send(query);
 
-            if (result == null)
-                return NotFound(new { message = "User not found" });
+        if (result == null)
+            return NotFound(new { message = "User not found" });
 
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        return Ok(result);
     }
 
     [HttpGet("email/{email}")]
     public async Task<ActionResult<UserDto>> GetUserByEmail(string email)
     {
-        try
-        {
-            var query = new GetUserByEmailQuery { Email = email };
-            var result = await _mediator.Send(query);
+        var query = new GetUserByEmailQuery { Email = email };
+        var result = await _mediator.Send(query);
 
-            if (result == null)
-                return NotFound(new { message = "User not found" });
+        if (result == null)
+            return NotFound(new { message = "User not found" });
 
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        return Ok(result);
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<UserDto>>> GetAllUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+    public async Task<ActionResult<PagedResult<UserDto>>> GetAllUsers(
+        [FromQuery] int pageNumber = 1, 
+        [FromQuery] int pageSize = 10)
     {
-        try
-        {
-            var query = new GetAllUsersQuery { PageNumber = pageNumber, PageSize = pageSize };
-            var result = await _mediator.Send(query);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        var query = new GetAllUsersQuery { PageNumber = pageNumber, PageSize = pageSize };
+        var result = await _mediator.Send(query);
+        return Ok(result);
     }
 
     [HttpPut("{id}")]
     public async Task<ActionResult<UserDto>> UpdateUser(int id, [FromBody] CreateUserDto updateUserDto)
     {
-        try
-        {
-            var command = new UpdateUserCommand { Id = id, UpdateUserDto = updateUserDto };
-            var result = await _mediator.Send(command);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        var command = new UpdateUserCommand { Id = id, UpdateUserDto = updateUserDto };
+        var result = await _mediator.Send(command);
+        return Ok(result);
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<bool>> DeleteUser(int id)
     {
-        try
-        {
-            var command = new DeleteUserCommand { Id = id };
-            var result = await _mediator.Send(command);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        var command = new DeleteUserCommand { Id = id };
+        var result = await _mediator.Send(command);
+        return Ok(result);
     }
 }

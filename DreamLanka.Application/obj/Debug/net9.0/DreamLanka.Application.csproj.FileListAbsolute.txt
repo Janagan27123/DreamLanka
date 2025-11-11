@@ -1,0 +1,16 @@
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.csproj.AssemblyReference.cache
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.AssemblyInfoInputs.cache
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.AssemblyInfo.cs
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.csproj.CoreCompileInputs.cache
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.sourcelink.json
+D:\DreamLanka\DreamLanka\DreamLanka.Application\bin\Debug\net9.0\DreamLanka.Application.deps.json
+D:\DreamLanka\DreamLanka\DreamLanka.Application\bin\Debug\net9.0\DreamLanka.Application.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Application\bin\Debug\net9.0\DreamLanka.Application.pdb
+D:\DreamLanka\DreamLanka\DreamLanka.Application\bin\Debug\net9.0\DreamLanka.Domain.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Application\bin\Debug\net9.0\DreamLanka.Domain.pdb
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLan.0C66B941.Up2Date
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\refint\DreamLanka.Application.dll
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\DreamLanka.Application.pdb
+D:\DreamLanka\DreamLanka\DreamLanka.Application\obj\Debug\net9.0\ref\DreamLanka.Application.dll
